@@ -13,7 +13,7 @@ EventDispatcherLibEvPrivate::EventDispatcherLibEvPrivate(EventDispatcherLibEv* c
 #endif
 	  m_notifiers(), m_timers(), m_event_list(), m_awaken(false)
 {
-	this->m_base = ev_loop_new(EVFLAG_AUTO);
+	this->m_base = ev_default_loop(0);
 	Q_CHECK_PTR(this->m_base != 0);
 
 	ev_set_userdata(this->m_base, this);
